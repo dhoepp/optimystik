@@ -1,0 +1,414 @@
+---
+// ─── Edit these in one place ─────────────────────────────────────
+const PHONE = "(563) 000-0000"; // TODO: real phone number
+const PHONE_HREF = "tel:+15630000000"; // TODO: match the number above
+const EMAIL = "optimysticmassage@gmail.com";
+const SQUARE_LINK = "https://optimystikmassage.square.site/?utm_id=97759_v0_s00_e0_tv3";
+const SHOW_TESTIMONIALS = true; // set false to hide until you have real quotes
+
+const faqs = [
+  {
+    q: "Why are cash and card prices different?",
+    a: "Card payments come with a processing fee, so paying by cash or check gets you a small discount ($5 per session). Totally standard for small practices — you're welcome to pay either way.",
+  },
+  {
+    q: "How does mobile massage work?",
+    a: "I bring everything — massage table, fresh linens, and supplies. You just need a quiet spot with about 8×5 feet of clear space. Mobile visits are available within 10 miles of Davenport.",
+  },
+  {
+    q: "What should I expect at my first appointment?",
+    a: "We'll start with a few minutes to talk through your health history, any problem areas, and your preferred pressure. You undress to your comfort level and are always properly draped. Arrive a few minutes early so we can chat without cutting into your table time.",
+  },
+  {
+    q: "Do you take insurance or HSA cards?",
+    a: "I don't bill insurance directly, but I'm happy to provide a receipt you can submit for reimbursement. Many HSA/FSA cards work for massage therapy with a doctor's recommendation — check with your plan, and bring your card.",
+  },
+];
+
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Optimystik Massage · Davenport, IA — Swedish &amp; Mobile Massage, Quad Cities</title>
+    <meta
+      name="description"
+      content="Therapeutic Swedish massage in Davenport, Iowa — in the studio or mobile within 10 miles. In-home care services for seniors across the Quad Cities. Book by phone or text."
+    />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAV -->
+    <header class="nav">
+      <div class="nav-inner">
+        <a href="#top" class="brand">Optimystik <em>Massage</em></a>
+        <nav class="nav-links">
+          <a href="#pricing">Pricing</a>
+          <a href="#care">Senior Care</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+          <a href="#book" class="btn btn-primary btn-nav">Text to book</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="top" class="hero">
+      <div class="hero-copy">
+        <span class="badge">DAVENPORT · QUAD CITIES</span>
+        <h1>A quieter hour,<br /><em>right when you need it.</em></h1>
+        <p>
+          Therapeutic Swedish massage in the studio — or brought to your home,
+          anywhere within 10 miles. Plus in-home care services for seniors.
+        </p>
+        <div class="btn-row">
+          <a href="#book" class="btn btn-primary">{PHONE}</a>
+          <a href="#pricing" class="btn btn-ghost">View services ↓</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <!-- TODO: replace with a real photo at public/images/studio.jpg
+             then swap this div for:
+             <img src={`${base}images/studio.jpg`} alt="Massage studio" /> -->
+        <div class="photo-placeholder">photo: studio / hands at work</div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <div class="pricing-head">
+          <h2>Services &amp; pricing</h2>
+          <span class="pricing-note">cash / card</span>
+        </div>
+        <div class="price-grid">
+          <div class="price-card studio">
+            <div class="price-label">STUDIO · 60 MIN</div>
+            <div class="price">$65<span> / 70</span></div>
+            <p>A full hour of Swedish massage — unhurried, head to toe.</p>
+          </div>
+          <div class="price-card studio">
+            <div class="price-label">STUDIO · 30 MIN</div>
+            <div class="price">$35<span> / 40</span></div>
+            <p>A focused half hour — neck, shoulders, back, or wherever it's needed.</p>
+          </div>
+          <div class="price-card mobile">
+            <div class="price-label">MOBILE · 60 MIN</div>
+            <div class="price">$75<span> / 80</span></div>
+            <p>The same full hour, in your home — table and linens provided.</p>
+          </div>
+          <div class="price-card mobile">
+            <div class="price-label">MOBILE · 30 MIN</div>
+            <div class="price">$50<span> / 55</span></div>
+            <p>A short visit, same care. Mobile visits within 10 miles of Davenport.</p>
+          </div>
+        </div>
+        <p class="fine-print">
+          Cash or check gets a small discount; the card price simply covers
+          processing. HSA/FSA questions welcome.
+        </p>
+      </div>
+    </section>
+
+    <!-- SENIOR CARE -->
+    <section id="care" class="care">
+      <div class="container care-inner">
+        <div class="care-mark">c</div>
+        <div class="care-copy">
+          <h2>In-home care for seniors</h2>
+          <p>
+            More than massage: dependable in-home help for older adults — a
+            blend of nursing-style care and house cleaning, tailored to what
+            each person actually needs. Serving families across the Quad Cities.
+          </p>
+          <div class="chip-row">
+            <span class="chip">Companion &amp; personal care</span>
+            <span class="chip">Light housekeeping</span>
+            <span class="chip">Errands &amp; daily living support</span>
+          </div>
+        </div>
+        <a href="#book" class="btn btn-primary">Ask about care →</a>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    {SHOW_TESTIMONIALS && (
+      <section class="container testimonials">
+        <figure class="quote-card">
+          <blockquote>“[Testimonial placeholder — a kind word from a massage regular.]”</blockquote>
+          <figcaption>— Client, Bettendorf</figcaption>
+        </figure>
+        <figure class="quote-card">
+          <blockquote>“[Testimonial placeholder — a mobile-massage client.]”</blockquote>
+          <figcaption>— Client, Davenport</figcaption>
+        </figure>
+        <figure class="quote-card">
+          <blockquote>“[Testimonial placeholder — from a care client's family.]”</blockquote>
+          <figcaption>— Care client's family, Moline</figcaption>
+        </figure>
+      </section>
+    )}
+
+    <!-- ABOUT -->
+    <section id="about" class="container about">
+      <!-- TODO: replace with a real photo at public/images/headshot.jpg
+           then swap this div for:
+           <img class="headshot" src={`${base}images/headshot.jpg`} alt="Portrait" /> -->
+      <div class="photo-placeholder headshot">headshot</div>
+      <div class="about-copy">
+        <h2>Hi, I'm [Name]</h2>
+        <p>
+          [Short bio — licensure, training, years of practice, caregiving
+          background, and a personal note about why she loves this work. Two or
+          three sentences is plenty.]
+        </p>
+        <p>
+          [Second paragraph — her connection to the Quad Cities and what
+          clients can expect from a session with her.]
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+      <h2>Questions</h2>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}<span class="faq-mark" aria-hidden="true"></span></summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- BOOK / FOOTER -->
+    <footer id="book" class="footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="footer-title">Book by phone or text</div>
+          <p class="footer-sub">
+            No apps, no accounts — just reach out and we'll find a time.<br />
+            <a href={`mailto:${EMAIL}`}>{EMAIL}</a> · Davenport, IA · Serving the Quad Cities
+          </p>
+        </div>
+        <div class="btn-row">
+          {SQUARE_LINK && (
+            <a href={SQUARE_LINK} class="btn btn-outline-light">Book online</a>
+          )}
+          <a href={PHONE_HREF} class="btn btn-light">{PHONE}</a>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <div class="container footer-bar-inner">
+          <span>© 2026 Optimystik Massage · Davenport, Iowa</span>
+          <span>Licensed massage therapy · Mobile visits within 10 miles</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  /* ─── Tokens ─── */
+  :root {
+    --bg: #f7f6f9;
+    --ink: #2f2b36;
+    --muted: #5d5670;
+    --line: #e2dee9;
+    --lavender: #6f6491;
+    --lavender-dark: #5d5379;
+    --plum: #37324a;
+    --plum-card: #453f5c;
+    --plum-muted: #aaa2be;
+    --sage: #71805f;
+    --sage-light: #d5dcc9;
+    --sage-badge-bg: #e7ece4;
+    --sage-badge-ink: #5c7355;
+    --care-bg: #edeaf3;
+    --serif: "Lora", Georgia, serif;
+    --sans: "Work Sans", system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1, h2 { font-family: var(--serif); font-weight: 500; margin: 0; }
+  h2 { font-size: clamp(26px, 3.4vw, 32px); }
+  .container { max-width: 1160px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+  section { scroll-margin-top: 74px; }
+
+  /* ─── Buttons ─── */
+  .btn {
+    display: inline-block;
+    padding: 15px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn-primary { background: var(--lavender); color: #fff; }
+  .btn-primary:hover { background: var(--lavender-dark); }
+  .btn-ghost { border: 1.5px solid #c9c2da; color: var(--muted); padding: 13.5px 26.5px; }
+  .btn-ghost:hover { border-color: var(--lavender); color: var(--lavender); }
+  .btn-light { background: #f5f2f6; color: var(--plum); font-size: 17px; padding: 16px 34px; }
+  .btn-light:hover { background: #fff; }
+  .btn-outline-light { border: 1.5px solid #a89fc4; color: #f5f2f6; font-size: 16px; padding: 14.5px 28.5px; }
+  .btn-outline-light:hover { border-color: #f5f2f6; }
+
+  /* ─── Nav ─── */
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(247, 246, 249, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1160px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 32px;
+  }
+  .brand { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--ink); text-decoration: none; }
+  .brand em { font-weight: 400; color: var(--lavender); }
+  .nav-links { display: flex; gap: 26px; align-items: center; font-size: 14px; }
+  .nav-links a { color: var(--muted); text-decoration: none; }
+  .nav-links a:hover { color: var(--lavender); }
+  .btn-nav { padding: 10px 22px; color: #fff; }
+
+  /* ─── Hero ─── */
+  .hero {
+    max-width: 1160px; margin: 0 auto;
+    display: flex; align-items: stretch;
+  }
+  .hero-copy { flex: 1.1; padding: 88px 32px 80px; }
+  .badge {
+    display: inline-block;
+    background: var(--sage-badge-bg); color: var(--sage-badge-ink);
+    font-size: 12.5px; font-weight: 600; letter-spacing: 0.12em;
+    padding: 7px 14px; border-radius: 6px; margin-bottom: 22px;
+  }
+  .hero h1 { font-size: clamp(36px, 4.6vw, 52px); line-height: 1.12; margin-bottom: 22px; }
+  .hero h1 em { color: var(--lavender); }
+  .hero p { font-size: 17px; line-height: 1.7; color: var(--muted); max-width: 440px; margin: 0 0 32px; }
+  .hero-photo { flex: 1; padding: 32px 32px 32px 0; display: flex; }
+
+  .photo-placeholder {
+    width: 100%; min-height: 440px; border-radius: 16px;
+    background: repeating-linear-gradient(45deg, #e6e1ec, #e6e1ec 10px, #dfd8e7 10px, #dfd8e7 20px);
+    display: flex; align-items: center; justify-content: center;
+    font-family: ui-monospace, monospace; font-size: 12px; color: var(--lavender);
+  }
+  .hero-photo img { width: 100%; object-fit: cover; border-radius: 16px; }
+
+  /* ─── Pricing ─── */
+  .pricing { background: var(--plum); color: #f4f2f7; padding: 72px 0 68px; }
+  .pricing-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 36px; flex-wrap: wrap; gap: 8px;
+  }
+  .pricing-note { font-size: 13.5px; color: var(--plum-muted); }
+  .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+  .price-card { border-radius: 12px; padding: 28px 26px; }
+  .price-card.studio { background: var(--plum-card); }
+  .price-card.mobile { background: var(--sage); }
+  .price-label { font-size: 12px; letter-spacing: 0.15em; margin-bottom: 12px; }
+  .price { font-family: var(--serif); font-size: 34px; margin-bottom: 8px; }
+  .price span { font-size: 16px; }
+  .price-card p { font-size: 13.5px; line-height: 1.55; margin: 0; }
+  .price-card.studio .price-label, .price-card.studio .price span, .price-card.studio p { color: var(--plum-muted); }
+  .price-card.mobile .price-label, .price-card.mobile .price span, .price-card.mobile p { color: var(--sage-light); }
+  .fine-print { font-size: 13.5px; color: #9a91b3; margin: 22px 0 0; }
+
+  /* ─── Senior care ─── */
+  .care { background: var(--care-bg); }
+  .care-inner { padding-top: 76px; padding-bottom: 76px; display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
+  .care-mark {
+    width: 64px; height: 64px; border-radius: 50%; background: var(--sage);
+    flex: none; display: flex; align-items: center; justify-content: center;
+    color: #f4f6ef; font-family: var(--serif); font-size: 26px; font-style: italic;
+  }
+  .care-copy { flex: 1; min-width: 300px; }
+  .care-copy h2 { margin-bottom: 14px; }
+  .care-copy p { font-size: 15.5px; line-height: 1.7; color: var(--muted); max-width: 640px; margin: 0 0 18px; }
+  .chip-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip { background: var(--bg); border-radius: 100px; padding: 9px 18px; font-size: 13.5px; color: var(--muted); }
+
+  /* ─── Testimonials ─── */
+  .testimonials {
+    padding-top: 68px; padding-bottom: 8px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;
+  }
+  .quote-card { background: #fff; border-radius: 12px; padding: 28px; border: 1px solid var(--line); margin: 0; }
+  .quote-card blockquote { font-family: var(--serif); font-style: italic; font-size: 17px; line-height: 1.6; margin: 0; }
+  .quote-card figcaption { font-size: 13px; color: var(--sage); margin-top: 14px; }
+
+  /* ─── About ─── */
+  .about { padding-top: 72px; padding-bottom: 72px; display: flex; gap: 52px; align-items: center; flex-wrap: wrap; }
+  .headshot { width: 300px; height: 360px; min-height: 360px; flex: none; border-radius: 16px; object-fit: cover; }
+  .about-copy { flex: 1; min-width: 300px; }
+  .about-copy h2 { margin-bottom: 16px; }
+  .about-copy p { font-size: 15.5px; line-height: 1.75; color: var(--muted); margin: 0 0 14px; }
+
+  /* ─── FAQ ─── */
+  .faq { max-width: 820px; margin: 0 auto; padding: 8px 32px 80px; }
+  .faq h2 { text-align: center; margin-bottom: 28px; }
+  .faq-list { border-top: 1px solid var(--line); }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 20px 6px; cursor: pointer; font-weight: 600; font-size: 15.5px;
+    list-style: none;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary:hover { color: var(--lavender); }
+  .faq-mark { color: var(--lavender); font-size: 20px; width: 20px; text-align: center; flex: none; }
+  .faq-mark::before { content: "+"; }
+  .faq details[open] .faq-mark::before { content: "−"; }
+  .faq details p { padding: 0 6px 22px; font-size: 15px; line-height: 1.7; color: var(--muted); max-width: 680px; margin: 0; }
+
+  /* ─── Footer ─── */
+  .footer { background: var(--lavender); color: #f5f2f6; }
+  .footer-inner {
+    padding-top: 64px; padding-bottom: 56px;
+    display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap;
+  }
+  .footer-title { font-family: var(--serif); font-size: 32px; margin-bottom: 10px; }
+  .footer-sub { font-size: 14.5px; color: #cfc8e2; line-height: 1.7; margin: 0; }
+  .footer-sub a { color: #f5f2f6; }
+  .footer-bar { border-top: 1px solid rgba(255, 255, 255, 0.16); }
+  .footer-bar-inner {
+    padding-top: 18px; padding-bottom: 18px;
+    font-size: 12.5px; color: #b3aacb;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+
+  /* ─── Mobile ─── */
+  @media (max-width: 860px) {
+    .nav-links a:not(.btn-nav) { display: none; }
+    .hero { flex-direction: column; }
+    .hero-copy { padding: 56px 32px 40px; }
+    .hero-photo { padding: 0 32px 40px; }
+    .photo-placeholder { min-height: 300px; }
+    .care-inner { gap: 28px; }
+    .about { gap: 32px; }
+    .headshot { width: 100%; height: 320px; }
+  }
+</style>
