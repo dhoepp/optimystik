@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Intake form received · Optimystik Massage"
+  description="Thanks for completing your new client intake form."
+  noindex
+>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href={`${base}`} class="brand">Optimystik <em>Massage</em></a>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <h1>Thanks — you're all set!</h1>
+    <p class="lede">
+      Your intake form has been received. Steph will review it before your
+      appointment, and there's nothing else you need to do. See you soon!
+    </p>
+    <a href={`${base}`} class="btn btn-primary">← Back to home</a>
+  </main>
+
+  <footer class="simple-footer">
+    <div class="container simple-footer-inner">
+      <span>Optimystik Massage · Davenport, IA</span>
+    </div>
+  </footer>
+</BaseLayout>

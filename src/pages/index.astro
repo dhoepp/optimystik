@@ -1,6 +1,7 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
 // ─── Edit these in one place ─────────────────────────────────────
-const EMAIL = "optimystikmassage@gmail.com";
 const SQUARE_LINK = "https://optimystikmassage.square.site/?utm_id=97759_v0_s00_e0_tv3";
 const SHOW_TESTIMONIALS = true; // set false to hide until you have real quotes
 
@@ -26,25 +27,10 @@ const faqs = [
 const base = import.meta.env.BASE_URL;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Optimystik Massage · Davenport, IA — Swedish &amp; Mobile Massage, Quad Cities</title>
-    <meta
-      name="description"
-      content="Therapeutic Swedish massage in Davenport, Iowa — in the studio or mobile within 10 miles. In-home care services for seniors across the Quad Cities. Book online today."
-    />
-    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
+<BaseLayout
+  title="Optimystik Massage · Davenport, IA — Swedish & Mobile Massage, Quad Cities"
+  description="Therapeutic Swedish massage in Davenport, Iowa — in the studio or mobile within 10 miles. In-home care services for seniors across the Quad Cities. Book online today."
+>
     <!-- NAV -->
     <header class="nav">
       <div class="nav-inner">
@@ -54,6 +40,7 @@ const base = import.meta.env.BASE_URL;
           <a href="#care">Senior Care</a>
           <a href="#about">About</a>
           <a href="#faq">FAQ</a>
+          <a href={`${base}contact`}>Contact</a>
           <a href={SQUARE_LINK} class="btn btn-primary btn-nav">Book online</a>
         </nav>
       </div>
@@ -191,8 +178,8 @@ const base = import.meta.env.BASE_URL;
         <div>
           <div class="footer-title">Ready to book?</div>
           <p class="footer-sub">
-            Book online and we'll find a time.<br />
-            <a href={`mailto:${EMAIL}`}>{EMAIL}</a> · Davenport, IA · Serving the Quad Cities
+            Book online and we'll find a time, or <a href={`${base}contact`}>send a message</a> if you have questions first.<br />
+            Davenport, IA · Serving the Quad Cities
           </p>
         </div>
         <div class="btn-row">
@@ -206,84 +193,9 @@ const base = import.meta.env.BASE_URL;
         </div>
       </div>
     </footer>
-  </body>
-</html>
+</BaseLayout>
 
 <style>
-  /* ─── Tokens ─── */
-  :root {
-    --bg: #f7f6f9;
-    --ink: #2f2b36;
-    --muted: #5d5670;
-    --line: #e2dee9;
-    --lavender: #6f6491;
-    --lavender-dark: #5d5379;
-    --plum: #37324a;
-    --plum-card: #453f5c;
-    --plum-muted: #aaa2be;
-    --sage: #71805f;
-    --sage-light: #d5dcc9;
-    --sage-badge-bg: #e7ece4;
-    --sage-badge-ink: #5c7355;
-    --care-bg: #edeaf3;
-    --serif: "Lora", Georgia, serif;
-    --sans: "Work Sans", system-ui, sans-serif;
-  }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  h1, h2 { font-family: var(--serif); font-weight: 500; margin: 0; }
-  h2 { font-size: clamp(26px, 3.4vw, 32px); }
-  .container { max-width: 1160px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
-  section { scroll-margin-top: 74px; }
-
-  /* ─── Buttons ─── */
-  .btn {
-    display: inline-block;
-    padding: 15px 28px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
-  }
-  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .btn-primary { background: var(--lavender); color: #fff; }
-  .btn-primary:hover { background: var(--lavender-dark); }
-  .btn-ghost { border: 1.5px solid #c9c2da; color: var(--muted); padding: 13.5px 26.5px; }
-  .btn-ghost:hover { border-color: var(--lavender); color: var(--lavender); }
-  .btn-light { background: #f5f2f6; color: var(--plum); font-size: 17px; padding: 16px 34px; }
-  .btn-light:hover { background: #fff; }
-  .btn-outline-light { border: 1.5px solid #a89fc4; color: #f5f2f6; font-size: 16px; padding: 14.5px 28.5px; }
-  .btn-outline-light:hover { border-color: #f5f2f6; }
-
-  /* ─── Nav ─── */
-  .nav {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(247, 246, 249, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-inner {
-    max-width: 1160px; margin: 0 auto;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 14px 32px;
-  }
-  .brand { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--ink); text-decoration: none; }
-  .brand em { font-weight: 400; color: var(--lavender); }
-  .nav-links { display: flex; gap: 26px; align-items: center; font-size: 14px; }
-  .nav-links a { color: var(--muted); text-decoration: none; }
-  .nav-links a:hover { color: var(--lavender); }
-  .btn-nav { padding: 10px 22px; color: #fff; }
-
   /* ─── Hero ─── */
   .hero {
     max-width: 1160px; margin: 0 auto;
@@ -407,7 +319,6 @@ const base = import.meta.env.BASE_URL;
 
   /* ─── Mobile ─── */
   @media (max-width: 860px) {
-    .nav-links a:not(.btn-nav) { display: none; }
     .hero { flex-direction: column; }
     .hero-copy { padding: 56px 32px 40px; }
     .hero-photo { padding: 0 32px 40px; }
