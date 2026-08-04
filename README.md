@@ -6,7 +6,7 @@ The design was created as an HTML design reference in a design tool; this repo i
 
 ## Before you deploy — TODOs
 
-All editable content lives at the **top of `src/pages/index.astro`** (email, Square link) and in the page markup:
+All editable content lives at the **top of `src/pages/index.astro`** (Square link) and in the page markup:
 
 1. **Name + bio** — fill in the `[Name]` and `[bio]` placeholders in the About section.
 2. **Photos** — add `public/images/studio.jpg` and `public/images/headshot.jpg`, then swap the placeholder `<div>`s for the `<img>` tags shown in the adjacent comments.
