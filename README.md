@@ -12,6 +12,8 @@ All editable content lives at the **top of `src/pages/index.astro`** (Square lin
 2. **Photos** — add `public/images/studio.jpg` and `public/images/headshot.jpg`, then swap the placeholder `<div>`s for the `<img>` tags shown in the adjacent comments.
 3. **Testimonials** — replace placeholder quotes, or set `SHOW_TESTIMONIALS = false` to hide the section.
 4. **Square link** — already set; update if the URL changes. All booking buttons link here — there is no phone number on the site.
+5. **Contact form** — done: wired to the "Contact inquiries" Formspree form. Confirm the destination email via the link Formspree sends on first submission, and set the form's allowed domain to `optimystikmassage.com`.
+6. **New client intake form** — done: wired to the "New client intake" Formspree form. Confirm the destination email via the link Formspree sends on first submission, and set the form's allowed domain to `optimystikmassage.com`. This page (`/intake`) is deliberately **not linked anywhere on the site** — it's marked `noindex` and excluded via `robots.txt`. Send the direct link only to people you've already screened through the contact form and decided to take on as clients, so they can fill it out before their first appointment. It contains sensitive health info, so consider periodically deleting old submissions from your Formspree dashboard.
 
 ## Deploy to GitHub Pages
 

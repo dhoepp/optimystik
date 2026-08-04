@@ -1,0 +1,108 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// ─── Edit this once you've created the form at formspree.io ─────
+const CONTACT_FORM_ID = "mnpaadqy";
+const FORM_ACTION = `https://formspree.io/f/${CONTACT_FORM_ID}`;
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Contact · Optimystik Massage"
+  description="Have a question before booking? Send a message and Steph will get back to you."
+>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href={`${base}`} class="brand">Optimystik <em>Massage</em></a>
+      <nav class="nav-links">
+        <a href={`${base}#pricing`}>Pricing</a>
+        <a href={`${base}#about`}>About</a>
+        <a href={`${base}#faq`}>FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <h1>Get in touch</h1>
+    <p class="lede">
+      Not ready to book, or just have a question first? Send a message and
+      Steph will follow up personally.
+    </p>
+
+    <form method="POST" action={FORM_ACTION}>
+      <input type="hidden" name="_subject" value="New inquiry — Optimystik Massage website" />
+      <input type="hidden" name="_next" value="https://optimystikmassage.com/contact-thanks/" />
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <fieldset class="form-section">
+        <legend>Your info</legend>
+
+        <div class="field">
+          <label class="field-label" for="name">Name</label>
+          <input type="text" id="name" name="Name" required autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="phone">Phone <span class="hint">(optional)</span></label>
+          <input type="tel" id="phone" name="Phone" autocomplete="tel" />
+        </div>
+
+        <div class="field">
+          <span class="field-label">Preferred contact method</span>
+          <div class="radio-row">
+            <label><input type="radio" name="Preferred contact method" value="Email" /> Email</label>
+            <label><input type="radio" name="Preferred contact method" value="Phone or text" /> Phone or text</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>What are you interested in?</legend>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="Interested in" value="Studio massage" /> Studio massage</label>
+          <label><input type="checkbox" name="Interested in" value="Mobile massage" /> Mobile massage</label>
+          <label><input type="checkbox" name="Interested in" value="Senior in-home care" /> Senior in-home care</label>
+          <label><input type="checkbox" name="Interested in" value="Not sure yet" /> Not sure yet</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Message</legend>
+
+        <div class="field">
+          <label class="field-label" for="heard">How did you hear about us? <span class="hint">(optional)</span></label>
+          <select id="heard" name="How they heard about us">
+            <option value=""></option>
+            <option>Google search</option>
+            <option>Facebook</option>
+            <option>Referral</option>
+            <option>Square</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="message">What can I help with?</label>
+          <textarea id="message" name="Message" required rows="5"></textarea>
+        </div>
+      </fieldset>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Send message</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="simple-footer">
+    <div class="container simple-footer-inner">
+      <span>Optimystik Massage · Davenport, IA · Serving the Quad Cities</span>
+      <a href={`${base}`}>← Back to home</a>
+    </div>
+  </footer>
+</BaseLayout>

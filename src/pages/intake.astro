@@ -1,0 +1,412 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// ─── Edit this once you've created the form at formspree.io ─────
+const INTAKE_FORM_ID = "xdenngkq";
+const FORM_ACTION = `https://formspree.io/f/${INTAKE_FORM_ID}`;
+
+const base = import.meta.env.BASE_URL;
+
+// This page is intentionally NOT linked from the site's nav or homepage.
+// Share the direct URL only with clients you've already screened and accepted,
+// so they can fill it out before their first appointment.
+---
+
+<BaseLayout
+  title="New Client Intake · Optimystik Massage"
+  description="Confidential new client health history and consent form."
+  noindex
+>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href={`${base}`} class="brand">Optimystik <em>Massage</em></a>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <h1>New client intake</h1>
+    <p class="lede">
+      Please fill this out before your first appointment. It covers the same
+      health history and consent info as the paper intake form, so we can
+      plan a session that's safe and effective for you.
+    </p>
+
+    <p class="notice-box">
+      This form is submitted securely to your practitioner's email through a
+      third-party form service (Formspree) and is used only to plan your
+      massage safely — for example, to know about conditions, allergies, or
+      medications that affect technique or pressure. It isn't shared for any
+      other purpose.
+    </p>
+
+    <form method="POST" action={FORM_ACTION}>
+      <input type="hidden" name="_subject" value="New Client Intake — Optimystik Massage" />
+      <input type="hidden" name="_next" value="https://optimystikmassage.com/intake-thanks/" />
+
+      <fieldset class="form-section">
+        <legend>Client information</legend>
+
+        <div class="field">
+          <label class="field-label" for="fullname">Full name</label>
+          <input type="text" id="fullname" name="Full name" required autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="address">Street address</label>
+          <input type="text" id="address" name="Address" autocomplete="street-address" />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="city">City</label>
+          <input type="text" id="city" name="City" autocomplete="address-level2" />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="state">State</label>
+          <input type="text" id="state" name="State" autocomplete="address-level1" />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="phone">Phone (primary)</label>
+          <input type="tel" id="phone" name="Phone (primary)" required autocomplete="tel" />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="phone-alt">Phone (alternate) <span class="hint">(optional)</span></label>
+          <input type="tel" id="phone-alt" name="Phone (alternate)" />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="occupation">Occupation <span class="hint">(optional)</span></label>
+          <input type="text" id="occupation" name="Occupation" />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="dob">Date of birth</label>
+          <input type="date" id="dob" name="Date of birth" required autocomplete="bday" />
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Massage history</legend>
+
+        <div class="field">
+          <span class="field-label">Have you had a professional massage before?</span>
+          <div class="radio-row">
+            <label><input type="radio" name="Had a professional massage before" value="Yes" /> Yes</label>
+            <label><input type="radio" name="Had a professional massage before" value="No" /> No</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Type / pressure preference</span>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="Type or pressure preference" value="Swedish" /> Swedish</label>
+            <label><input type="checkbox" name="Type or pressure preference" value="Deep tissue" /> Deep tissue</label>
+            <label><input type="checkbox" name="Type or pressure preference" value="Shiatsu" /> Shiatsu</label>
+            <label><input type="checkbox" name="Type or pressure preference" value="Sports" /> Sports</label>
+            <label><input type="checkbox" name="Type or pressure preference" value="Light pressure" /> Light pressure</label>
+            <label><input type="checkbox" name="Type or pressure preference" value="Firm / deep pressure" /> Firm / deep pressure</label>
+          </div>
+          <input type="text" class="hint-input" name="Type or pressure preference (other)" placeholder="Other (please specify)" />
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Medications</legend>
+
+        <div class="field">
+          <span class="field-label">Are you currently taking any medications?</span>
+          <div class="radio-row">
+            <label><input type="radio" name="Currently taking medications" value="Yes" /> Yes</label>
+            <label><input type="radio" name="Currently taking medications" value="No" /> No</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="meds-list">If yes, please list medication(s) and reason</label>
+          <textarea id="meds-list" name="Medications list and reason" rows="3"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Healthcare provider</legend>
+
+        <div class="field">
+          <span class="field-label">Are you currently seeing a healthcare professional?</span>
+          <div class="radio-row">
+            <label><input type="radio" name="Currently seeing a healthcare professional" value="Yes" /> Yes</label>
+            <label><input type="radio" name="Currently seeing a healthcare professional" value="No" /> No</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="provider-detail">If yes, please list name / reason</label>
+          <textarea id="provider-detail" name="Healthcare provider name and reason" rows="3"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Health history</legend>
+        <p class="hint">Check any that apply, now or in the past.</p>
+
+        <div class="field">
+          <span class="field-label">Head &amp; neck</span>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="Head & Neck" value="Headaches or migraines" /> Headaches or migraines</label>
+            <label><input type="checkbox" name="Head & Neck" value="Ringing in ears" /> Ringing in ears</label>
+            <label><input type="checkbox" name="Head & Neck" value="Vision problems" /> Vision problems</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Cardiovascular</span>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="Cardiovascular" value="High blood pressure" /> High blood pressure</label>
+            <label><input type="checkbox" name="Cardiovascular" value="Low blood pressure" /> Low blood pressure</label>
+            <label><input type="checkbox" name="Cardiovascular" value="Heart attack" /> Heart attack</label>
+            <label><input type="checkbox" name="Cardiovascular" value="Heart disease" /> Heart disease</label>
+            <label><input type="checkbox" name="Cardiovascular" value="Stroke" /> Stroke</label>
+            <label><input type="checkbox" name="Cardiovascular" value="Phlebitis / varicose veins" /> Phlebitis / varicose veins</label>
+            <label><input type="checkbox" name="Cardiovascular" value="Poor circulation" /> Poor circulation</label>
+            <label><input type="checkbox" name="Cardiovascular" value="Pacemaker" /> Pacemaker</label>
+            <label><input type="checkbox" name="Cardiovascular" value="Hemophilia" /> Hemophilia</label>
+            <label><input type="checkbox" name="Cardiovascular" value="Chronic congestive heart failure" /> Chronic congestive heart failure</label>
+            <label><input type="checkbox" name="Cardiovascular" value="Family history of cardiovascular problems" /> Family history of cardiovascular problems</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Respiratory</span>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="Respiratory" value="Asthma" /> Asthma</label>
+            <label><input type="checkbox" name="Respiratory" value="Shortness of breath" /> Shortness of breath</label>
+            <label><input type="checkbox" name="Respiratory" value="Chronic cough" /> Chronic cough</label>
+            <label><input type="checkbox" name="Respiratory" value="Bronchitis" /> Bronchitis</label>
+            <label><input type="checkbox" name="Respiratory" value="Emphysema" /> Emphysema</label>
+            <label><input type="checkbox" name="Respiratory" value="Sinusitis" /> Sinusitis</label>
+            <label><input type="checkbox" name="Respiratory" value="Frequent colds" /> Frequent colds</label>
+            <label><input type="checkbox" name="Respiratory" value="Smoker" /> Smoker</label>
+            <label><input type="checkbox" name="Respiratory" value="Family history of respiratory difficulties" /> Family history of respiratory difficulties</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Nervous system</span>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="Nervous System" value="Numbness or tingling" /> Numbness or tingling</label>
+            <label><input type="checkbox" name="Nervous System" value="Sensory loss or change" /> Sensory loss or change</label>
+            <label><input type="checkbox" name="Nervous System" value="Sciatica" /> Sciatica</label>
+            <label><input type="checkbox" name="Nervous System" value="Epilepsy" /> Epilepsy</label>
+            <label><input type="checkbox" name="Nervous System" value="Seizures" /> Seizures</label>
+            <label><input type="checkbox" name="Nervous System" value="Multiple sclerosis" /> Multiple sclerosis</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Musculoskeletal</span>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="Musculoskeletal" value="Arthritis" /> Arthritis</label>
+            <label><input type="checkbox" name="Musculoskeletal" value="Family history of arthritis" /> Family history of arthritis</label>
+            <label><input type="checkbox" name="Musculoskeletal" value="Osteoporosis" /> Osteoporosis</label>
+            <label><input type="checkbox" name="Musculoskeletal" value="Tendonitis" /> Tendonitis</label>
+            <label><input type="checkbox" name="Musculoskeletal" value="Bursitis" /> Bursitis</label>
+            <label><input type="checkbox" name="Musculoskeletal" value="Jaw pain / TMJ" /> Jaw pain / TMJ</label>
+            <label><input type="checkbox" name="Musculoskeletal" value="Pins, plates, wires, or artificial joint" /> Pins, plates, wires, or artificial joint</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Skin &amp; infections</span>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="Skin & Infections" value="HIV/AIDS" /> HIV/AIDS</label>
+            <label><input type="checkbox" name="Skin & Infections" value="Hepatitis" /> Hepatitis</label>
+            <label><input type="checkbox" name="Skin & Infections" value="Tuberculosis" /> Tuberculosis</label>
+            <label><input type="checkbox" name="Skin & Infections" value="Herpes" /> Herpes</label>
+            <label><input type="checkbox" name="Skin & Infections" value="Lyme disease" /> Lyme disease</label>
+            <label><input type="checkbox" name="Skin & Infections" value="Infectious skin condition" /> Infectious skin condition</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">Other conditions</span>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="Other Conditions" value="Diabetes" /> Diabetes</label>
+            <label><input type="checkbox" name="Other Conditions" value="Cancer" /> Cancer</label>
+            <label><input type="checkbox" name="Other Conditions" value="Unexplained weight loss" /> Unexplained weight loss</label>
+            <label><input type="checkbox" name="Other Conditions" value="Digestive conditions" /> Digestive conditions</label>
+            <label><input type="checkbox" name="Other Conditions" value="Fibromyalgia" /> Fibromyalgia</label>
+            <label><input type="checkbox" name="Other Conditions" value="Chronic fatigue syndrome" /> Chronic fatigue syndrome</label>
+            <label><input type="checkbox" name="Other Conditions" value="Depression" /> Depression</label>
+            <label><input type="checkbox" name="Other Conditions" value="Anxiety" /> Anxiety</label>
+            <label><input type="checkbox" name="Other Conditions" value="Psychiatric disorder" /> Psychiatric disorder</label>
+          </div>
+          <input type="text" class="hint-input" name="Other Conditions (other)" placeholder="Other (please specify)" />
+        </div>
+
+        <div class="field">
+          <span class="field-label">Reproductive health</span>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="Reproductive Health" value="Currently pregnant" /> Currently pregnant</label>
+            <label><input type="checkbox" name="Reproductive Health" value="Given birth in the last year" /> Given birth in the last year</label>
+            <label><input type="checkbox" name="Reproductive Health" value="Gynecological problems" /> Gynecological problems</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="health-notes">Additional health history notes <span class="hint">(optional)</span></label>
+          <textarea id="health-notes" name="Additional health history notes" rows="3"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Today's status</legend>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="Today's status" value="Skin rash" /> Skin rash</label>
+          <label><input type="checkbox" name="Today's status" value="Cold or flu symptoms" /> Cold or flu symptoms</label>
+          <label><input type="checkbox" name="Today's status" value="Anything contagious" /> Anything contagious</label>
+          <label><input type="checkbox" name="Today's status" value="Open cuts or wounds" /> Open cuts or wounds</label>
+          <label><input type="checkbox" name="Today's status" value="Recent injury or bruising" /> Recent injury or bruising</label>
+          <label><input type="checkbox" name="Today's status" value="Severe pain" /> Severe pain</label>
+        </div>
+        <div class="field">
+          <label class="field-label" for="status-detail">Details <span class="hint">(optional)</span></label>
+          <textarea id="status-detail" name="Today's status details" rows="2"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Allergies</legend>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="Allergy types" value="Medications" /> Medications</label>
+          <label><input type="checkbox" name="Allergy types" value="Foods" /> Foods</label>
+          <label><input type="checkbox" name="Allergy types" value="Environmental (pollen, dust, etc.)" /> Environmental (pollen, dust, etc.)</label>
+          <label><input type="checkbox" name="Allergy types" value="Reactions to skincare / lotion products" /> Reactions to skincare / lotion products</label>
+        </div>
+        <div class="field">
+          <label class="field-label" for="allergy-detail">Details <span class="hint">(optional)</span></label>
+          <textarea id="allergy-detail" name="Allergy details" rows="2"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Currently wearing</legend>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="Currently wearing" value="Contact lenses" /> Contact lenses</label>
+          <label><input type="checkbox" name="Currently wearing" value="Hearing aid" /> Hearing aid</label>
+          <label><input type="checkbox" name="Currently wearing" value="Hairpiece or wig" /> Hairpiece or wig</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Areas of discomfort</legend>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="Areas of discomfort" value="Head" /> Head</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Neck" /> Neck</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Left shoulder" /> Left shoulder</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Right shoulder" /> Right shoulder</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Upper back" /> Upper back</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Lower back" /> Lower back</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Chest" /> Chest</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Abdomen" /> Abdomen</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Left arm" /> Left arm</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Right arm" /> Right arm</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Left hand or wrist" /> Left hand or wrist</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Right hand or wrist" /> Right hand or wrist</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Left hip" /> Left hip</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Right hip" /> Right hip</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Left leg" /> Left leg</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Right leg" /> Right leg</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Left knee" /> Left knee</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Right knee" /> Right knee</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Left foot or ankle" /> Left foot or ankle</label>
+          <label><input type="checkbox" name="Areas of discomfort" value="Right foot or ankle" /> Right foot or ankle</label>
+        </div>
+        <input type="text" class="hint-input" name="Areas of discomfort (other)" placeholder="Other (please specify)" />
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Goals for this session</legend>
+        <div class="field">
+          <label class="field-label" for="goals">What are your goals or expectations for this therapy session?</label>
+          <textarea id="goals" name="Goals for this session" required rows="4"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Consent &amp; waiver</legend>
+
+        <div class="consent-box">
+          <p>
+            It is my choice to receive massage therapy, and I am aware of the
+            benefits and risks of massage. I understand that there is no
+            implied or stated guarantee of effectiveness of individual
+            techniques or series of appointments. I acknowledge that massage
+            therapy is not a substitute for medical care, medical examination,
+            or diagnosis. I will inform my practitioner of any changes in my
+            health status.
+          </p>
+          <p>
+            I understand that my personal health information will be
+            collected. All information that I provide will be kept
+            confidential unless required by law. I understand and consent
+            that my medical information may be shared by the various care
+            providers involved in my care and treatment.
+          </p>
+          <p>
+            Treatments may be covered by extended health care plans. I
+            understand that it is my responsibility to confirm the exact
+            details of my coverage.
+          </p>
+          <p>
+            I understand that although massage therapy can be very
+            therapeutic, relaxing, and reduce muscular tension, the following
+            sometimes occurs during massage. They are normal responses to
+            relaxation: trust your body to express what it needs to, including
+            a need to move or change position, sighing, yawning, change in
+            breathing, stomach gurgling, emotional feelings and/or expression,
+            movement of intestinal gas, energy shifts, falling asleep, or
+            memories.
+          </p>
+          <p>
+            This is a therapeutic massage, and any sexual remarks or advances
+            will terminate the session and I will be liable for payment of the
+            scheduled treatment.
+          </p>
+          <p>
+            Being that massage should not be done under certain medical
+            conditions, I affirm that I have answered all questions pertaining
+            to medical conditions truthfully.
+          </p>
+        </div>
+
+        <div class="field">
+          <label>
+            <input type="checkbox" name="Consent agreement" value="I agree to the terms above" required />
+            I agree to the terms above
+          </label>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="signature">Signature (typed full name)</label>
+          <input type="text" id="signature" name="Signature (typed full name)" required autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="date-signed">Date signed</label>
+          <input type="date" id="date-signed" name="Date signed" required />
+        </div>
+      </fieldset>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Submit intake form</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="simple-footer">
+    <div class="container simple-footer-inner">
+      <span>Optimystik Massage · Confidential intake form</span>
+    </div>
+  </footer>
+</BaseLayout>

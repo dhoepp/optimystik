@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Message sent · Optimystik Massage"
+  description="Thanks for reaching out to Optimystik Massage — Steph will follow up soon."
+>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href={`${base}`} class="brand">Optimystik <em>Massage</em></a>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <h1>Thanks for reaching out!</h1>
+    <p class="lede">
+      Your message is on its way. Steph reads every inquiry personally and
+      will follow up soon using whichever contact method you preferred.
+    </p>
+    <a href={`${base}`} class="btn btn-primary">← Back to home</a>
+  </main>
+
+  <footer class="simple-footer">
+    <div class="container simple-footer-inner">
+      <span>Optimystik Massage · Davenport, IA · Serving the Quad Cities</span>
+    </div>
+  </footer>
+</BaseLayout>
