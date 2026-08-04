@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 // ─── Edit these in one place ─────────────────────────────────────
-const SQUARE_LINK = "https://optimystikmassage.square.site/?utm_id=97759_v0_s00_e0_tv3";
+const BOOK_CTA_LABEL = "Start here";
 const SHOW_TESTIMONIALS = true; // set false to hide until you have real quotes
 
 const faqs = [
@@ -29,7 +29,7 @@ const base = import.meta.env.BASE_URL;
 
 <BaseLayout
   title="Optimystik Massage · Davenport, IA — Swedish & Mobile Massage, Quad Cities"
-  description="Therapeutic Swedish massage in Davenport, Iowa — in the studio or mobile within 10 miles. In-home care services for seniors across the Quad Cities. Book online today."
+  description="Therapeutic Swedish massage in Davenport, Iowa — in the studio or mobile within 10 miles. Temporary in-home care services for seniors across the Quad Cities. Get in touch today."
 >
     <!-- NAV -->
     <header class="nav">
@@ -37,11 +37,10 @@ const base = import.meta.env.BASE_URL;
         <a href="#top" class="brand">Optimystik <em>Massage</em></a>
         <nav class="nav-links">
           <a href="#pricing">Pricing</a>
-          <a href="#care">Senior Care</a>
+          <a href="#care">Temporary In-Home Care</a>
           <a href="#about">About</a>
           <a href="#faq">FAQ</a>
-          <a href={`${base}contact`}>Contact</a>
-          <a href={SQUARE_LINK} class="btn btn-primary btn-nav">Book online</a>
+          <a href={`${base}contact`} class="btn btn-primary btn-nav">{BOOK_CTA_LABEL}</a>
         </nav>
       </div>
     </header>
@@ -53,10 +52,10 @@ const base = import.meta.env.BASE_URL;
         <h1>A quieter hour,<br /><em>right when you need it.</em></h1>
         <p>
           Therapeutic Swedish massage in the studio — or brought to your home,
-          anywhere within 10 miles. Plus in-home care services for seniors.
+          anywhere within 10 miles. Plus temporary in-home care services for seniors.
         </p>
         <div class="btn-row">
-          <a href={SQUARE_LINK} class="btn btn-primary">Book online</a>
+          <a href={`${base}contact`} class="btn btn-primary">{BOOK_CTA_LABEL}</a>
           <a href="#pricing" class="btn btn-ghost">View services ↓</a>
         </div>
       </div>
@@ -104,12 +103,12 @@ const base = import.meta.env.BASE_URL;
       </div>
     </section>
 
-    <!-- SENIOR CARE -->
+    <!-- IN-HOME CARE -->
     <section id="care" class="care">
       <div class="container care-inner">
         <div class="care-mark">c</div>
         <div class="care-copy">
-          <h2>In-home care for seniors</h2>
+          <h2>Temporary in-home care for seniors</h2>
           <p>
             More than massage: dependable in-home help for older adults — a
             blend of nursing-style care and house cleaning, tailored to what
@@ -176,14 +175,14 @@ const base = import.meta.env.BASE_URL;
     <footer id="book" class="footer">
       <div class="container footer-inner">
         <div>
-          <div class="footer-title">Ready to book?</div>
+          <div class="footer-title">Ready to get started?</div>
           <p class="footer-sub">
-            Book online and we'll find a time, or <a href={`${base}contact`}>send a message</a> if you have questions first.<br />
+            Send a message and Steph will follow up personally to find a time that works.<br />
             Davenport, IA · Serving the Quad Cities
           </p>
         </div>
         <div class="btn-row">
-          <a href={SQUARE_LINK} class="btn btn-light">Book online</a>
+          <a href={`${base}contact`} class="btn btn-light">{BOOK_CTA_LABEL}</a>
         </div>
       </div>
       <div class="footer-bar">
@@ -254,7 +253,7 @@ const base = import.meta.env.BASE_URL;
   .price-card.mobile .price-label, .price-card.mobile .price span, .price-card.mobile p { color: var(--sage-light); }
   .fine-print { font-size: 13.5px; color: #9a91b3; margin: 22px 0 0; }
 
-  /* ─── Senior care ─── */
+  /* ─── In-home care ─── */
   .care { background: var(--care-bg); }
   .care-inner { padding-top: 76px; padding-bottom: 76px; display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
   .care-mark {

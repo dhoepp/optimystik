@@ -6,12 +6,12 @@ The design was created as an HTML design reference in a design tool; this repo i
 
 ## Before you deploy — TODOs
 
-All editable content lives at the **top of `src/pages/index.astro`** (Square link) and in the page markup:
+All editable content lives at the **top of `src/pages/index.astro`** (CTA button wording) and in the page markup:
 
 1. **Name + bio** — fill in the `[Name]` and `[bio]` placeholders in the About section.
 2. **Photos** — add `public/images/studio.jpg` and `public/images/headshot.jpg`, then swap the placeholder `<div>`s for the `<img>` tags shown in the adjacent comments.
 3. **Testimonials** — replace placeholder quotes, or set `SHOW_TESTIMONIALS = false` to hide the section.
-4. **Square link** — already set; update if the URL changes. All booking buttons link here — there is no phone number on the site.
+4. **Square booking link** — no longer linked anywhere on the site; booking isn't self-serve anymore. Once you accept someone as a client via the contact form, share it with them directly (e.g. via the accept-client email template), alongside the intake form link: `https://optimystikmassage.square.site/?utm_id=97759_v0_s00_e0_tv3`. There is no phone number on the site.
 5. **Contact form** — done: wired to the "Contact inquiries" Formspree form. Confirm the destination email via the link Formspree sends on first submission, and set the form's allowed domain to `optimystikmassage.com`.
 6. **New client intake form** — done: wired to the "New client intake" Formspree form. Confirm the destination email via the link Formspree sends on first submission, and set the form's allowed domain to `optimystikmassage.com`. This page (`/intake`) is deliberately **not linked anywhere on the site** — it's marked `noindex` and excluded via `robots.txt`. Send the direct link only to people you've already screened through the contact form and decided to take on as clients, so they can fill it out before their first appointment. It contains sensitive health info, so consider periodically deleting old submissions from your Formspree dashboard.
 
