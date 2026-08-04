@@ -103,8 +103,8 @@ const base = import.meta.env.BASE_URL;
   .brand { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--ink); text-decoration: none; }
   .brand em { font-weight: 400; color: var(--lavender); }
   .nav-links { display: flex; gap: 26px; align-items: center; font-size: 14px; }
-  .nav-links a { color: var(--muted); text-decoration: none; }
-  .nav-links a:hover { color: var(--lavender); }
+  .nav-links a:not(.btn-nav) { color: var(--muted); text-decoration: none; }
+  .nav-links a:not(.btn-nav):hover { color: var(--lavender); }
   .btn-nav { padding: 10px 22px; color: #fff; }
 
   /* ─── Simple footer (form pages) ─── */
