@@ -1,6 +1,6 @@
 # Optimystik Massage — website
 
-Lightweight one-page Astro site for Optimystik Massage (Davenport, IA / Quad Cities), ready to deploy on GitHub Pages.
+Lightweight one-page Astro site for Optimystik Massage (Davenport, IA / Quad Cities), deployed on Cloudflare Pages.
 
 The design was created as an HTML design reference in a design tool; this repo is the production implementation — a single static page, no client-side JavaScript (the FAQ accordion uses native `<details>`).
 
@@ -15,16 +15,18 @@ All editable content lives at the **top of `src/pages/index.astro`** (Square lin
 5. **Contact form** — done: wired to the "Contact inquiries" Formspree form. Confirm the destination email via the link Formspree sends on first submission, and set the form's allowed domain to `optimystikmassage.com`.
 6. **New client intake form** — done: wired to the "New client intake" Formspree form. Confirm the destination email via the link Formspree sends on first submission, and set the form's allowed domain to `optimystikmassage.com`. This page (`/intake`) is deliberately **not linked anywhere on the site** — it's marked `noindex` and excluded via `robots.txt`. Send the direct link only to people you've already screened through the contact form and decided to take on as clients, so they can fill it out before their first appointment. It contains sensitive health info, so consider periodically deleting old submissions from your Formspree dashboard.
 
-## Deploy to GitHub Pages
+## Deploy to Cloudflare Pages
 
-1. Create a new GitHub repo and push this folder's contents to the `main` branch.
-2. Edit `astro.config.mjs`:
-   - Set `site` to `https://YOUR-USERNAME.github.io`.
-   - If the repo is **not** named `YOUR-USERNAME.github.io`, uncomment `base` and set it to `/YOUR-REPO-NAME`.
-3. In the repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-4. Push (or re-run the workflow). The included `.github/workflows/deploy.yml` builds and deploys automatically on every push to `main`.
+The site deploys via Cloudflare's own git integration — no GitHub Actions workflow needed:
 
-Your site will be live at `https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/` (or the root URL for a `username.github.io` repo).
+1. Cloudflare dashboard → **Workers & Pages → Create → Connect to Git** → select this repo, production branch `main`.
+2. Build settings: command `npm run build`, output directory `dist`, root `/`.
+3. Once the first deploy succeeds, add the custom domain under the project's **Custom domains** tab, then point DNS at it — a `CNAME` record at `@` (apex) to the project's `*.pages.dev`/`*.workers.dev` hostname, set to **Proxied**.
+4. From then on, every push to `main` deploys to production automatically, and every other branch/PR gets its own live preview URL — useful for reviewing changes before they go out, without running a local server.
+
+`astro.config.mjs`'s `site: 'https://optimystikmassage.com'` already matches a root custom domain — no config changes needed for this deploy target.
+
+> **Mid-migration note:** GitHub Pages is still enabled in parallel for now (see `.github/workflows/deploy.yml`) while the Cloudflare cutover is confirmed fully stable. It'll be retired once that's done.
 
 ## Local development
 
