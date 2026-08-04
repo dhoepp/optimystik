@@ -72,7 +72,7 @@ const base = import.meta.env.BASE_URL;
       <div class="container">
         <div class="pricing-head">
           <h2>Services &amp; pricing</h2>
-          <span class="pricing-note">cash / card</span>
+          <span class="pricing-note"><strong>cash</strong> / card</span>
         </div>
         <div class="price-grid">
           <div class="price-card studio">
@@ -106,7 +106,6 @@ const base = import.meta.env.BASE_URL;
     <!-- IN-HOME CARE -->
     <section id="care" class="care">
       <div class="container care-inner">
-        <div class="care-mark">c</div>
         <div class="care-copy">
           <h2>Temporary in-home care for seniors</h2>
           <p>
@@ -187,7 +186,7 @@ const base = import.meta.env.BASE_URL;
       </div>
       <div class="footer-bar">
         <div class="container footer-bar-inner">
-          <span>© 2026 Optimystik Massage · Davenport, Iowa</span>
+          <span>© 2026 Optimystik Massage · Davenport, Iowa | website by <a href="https://dhoepp.com" target="_blank" rel="noopener noreferrer">Dustin Hoeppner</a></span>
           <span>Licensed massage therapy · Mobile visits within 10 miles</span>
         </div>
       </div>
@@ -256,11 +255,6 @@ const base = import.meta.env.BASE_URL;
   /* ─── In-home care ─── */
   .care { background: var(--care-bg); }
   .care-inner { padding-top: 76px; padding-bottom: 76px; display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
-  .care-mark {
-    width: 64px; height: 64px; border-radius: 50%; background: var(--sage);
-    flex: none; display: flex; align-items: center; justify-content: center;
-    color: #f4f6ef; font-family: var(--serif); font-size: 26px; font-style: italic;
-  }
   .care-copy { flex: 1; min-width: 300px; }
   .care-copy h2 { margin-bottom: 14px; }
   .care-copy p { font-size: 15.5px; line-height: 1.7; color: var(--muted); max-width: 640px; margin: 0 0 18px; }
@@ -315,6 +309,8 @@ const base = import.meta.env.BASE_URL;
     font-size: 12.5px; color: #b3aacb;
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
   }
+  .footer-bar-inner a { color: #b3aacb; }
+  .footer-bar-inner a:hover { color: #f5f2f6; }
 
   /* ─── Mobile ─── */
   @media (max-width: 860px) {
