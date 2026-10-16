@@ -11,10 +11,6 @@ const faqs = [
     a: "Card payments come with a processing fee, so paying by cash or check gets you a small discount ($5 per session). Totally standard for small practices — you're welcome to pay either way.",
   },
   {
-    q: "How does mobile massage work?",
-    a: "I bring everything — massage table, fresh linens, and supplies. You just need a quiet spot with about 8×5 feet of clear space. Mobile visits are available within 10 miles of Davenport.",
-  },
-  {
     q: "What should I expect at my first appointment?",
     a: "We'll start with a few minutes to talk through your health history, any problem areas, and your preferred pressure. You undress to your comfort level and are always properly draped. Arrive a few minutes early so we can chat without cutting into your table time.",
   },
@@ -28,8 +24,8 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
-  title="Optimystik Massage · Davenport, IA — Swedish & Mobile Massage, Quad Cities"
-  description="Therapeutic Swedish massage in Davenport, Iowa — in the studio or mobile within 10 miles. Temporary in-home care services across the Quad Cities. Get in touch today."
+  title="Optimystik Massage · Davenport, IA — Swedish Massage, Quad Cities"
+  description="Therapeutic Swedish massage in Davenport, Iowa — in the studio. Temporary in-home care services across the Quad Cities. Get in touch today."
 >
     <!-- NAV -->
     <header class="nav">
@@ -51,8 +47,8 @@ const base = import.meta.env.BASE_URL;
         <span class="badge">DAVENPORT · QUAD CITIES</span>
         <h1>A quieter hour,<br /><em>right when you need it.</em></h1>
         <p>
-          Therapeutic Swedish massage in the studio — or brought to your home,
-          anywhere within 10 miles. Plus temporary in-home care services.
+          Therapeutic Swedish massage in the studio. Plus temporary in-home
+          care services.
         </p>
         <div class="btn-row">
           <a href={`${base}contact`} class="btn btn-primary">{BOOK_CTA_LABEL}</a>
@@ -84,16 +80,6 @@ const base = import.meta.env.BASE_URL;
             <div class="price-label">STUDIO · 30 MIN</div>
             <div class="price">$35<span> / 40</span></div>
             <p>A focused half hour — neck, shoulders, back, or wherever it's needed.</p>
-          </div>
-          <div class="price-card mobile">
-            <div class="price-label">MOBILE · 60 MIN</div>
-            <div class="price">$75<span> / 80</span></div>
-            <p>The same full hour, in your home — table and linens provided.</p>
-          </div>
-          <div class="price-card mobile">
-            <div class="price-label">MOBILE · 30 MIN</div>
-            <div class="price">$50<span> / 55</span></div>
-            <p>A short visit, same care. Mobile visits within 10 miles of Davenport.</p>
           </div>
         </div>
         <p class="fine-print">
@@ -187,7 +173,7 @@ const base = import.meta.env.BASE_URL;
       <div class="footer-bar">
         <div class="container footer-bar-inner">
           <span>© 2026 Optimystik Massage · Davenport, Iowa | website by <a href="https://dhoepp.com" target="_blank" rel="noopener noreferrer">Dustin Hoeppner</a></span>
-          <span>Licensed massage therapy · Mobile visits within 10 miles</span>
+          <span>Licensed massage therapy</span>
         </div>
       </div>
     </footer>
@@ -243,13 +229,11 @@ const base = import.meta.env.BASE_URL;
   .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
   .price-card { border-radius: 12px; padding: 28px 26px; }
   .price-card.studio { background: var(--plum-card); }
-  .price-card.mobile { background: var(--sage); }
   .price-label { font-size: 12px; letter-spacing: 0.15em; margin-bottom: 12px; }
   .price { font-family: var(--serif); font-size: 34px; margin-bottom: 8px; }
   .price span { font-size: 16px; }
   .price-card p { font-size: 13.5px; line-height: 1.55; margin: 0; }
   .price-card.studio .price-label, .price-card.studio .price span, .price-card.studio p { color: var(--plum-muted); }
-  .price-card.mobile .price-label, .price-card.mobile .price span, .price-card.mobile p { color: var(--sage-light); }
   .fine-print { font-size: 13.5px; color: #9a91b3; margin: 22px 0 0; }
 
   /* ─── In-home care ─── */
